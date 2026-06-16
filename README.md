@@ -1,4 +1,2 @@
 # Kitab Mall App
-Official Android app for kitabmall.com
-
-Build triggered!
+Official Android app - Build v3
