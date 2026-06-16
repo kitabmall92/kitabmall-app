@@ -1,3 +1,4 @@
-# Kitab Mall Android App
+# Kitab Mall App
 Official Android app for kitabmall.com
-Built with WebView - Full WooCommerce support
+
+Build triggered!
