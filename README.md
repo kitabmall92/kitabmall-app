@@ -1,2 +1,2 @@
 # Kitab Mall App
-Official Android app - Build v3
+Build v4 - targetSdk 34
