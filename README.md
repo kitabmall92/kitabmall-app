@@ -1,2 +1,2 @@
-# Kitab Mall App
-Build v5
+# Kitab Mall
+Build v6 - no appcompat
