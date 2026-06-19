@@ -30,21 +30,7 @@ jobs:
         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      run: |
-        set +e
-        ./gradlew bundleRelease assembleRelease --no-daemon --stacktrace 2>&1 | tee gradle_out.txt
-        code=${PIPESTATUS[0]}
-        if [ "$code" -ne 0 ]; then
-          echo "===== GRADLE FAILED (tail) ====="
-          tail -100 gradle_out.txt
-          awk '/What went wrong:/{f=1} f{print} /^\* Try:|BUILD FAILED/{if(f)exit}' gradle_out.txt > wrong.txt
-          grep -nE "Caused by:|error:|Could not|Unsupported|incompatible|requires|No matching|not found|Failed to" gradle_out.txt | tail -15 >> wrong.txt
-          while IFS= read -r line; do
-            clean=$(printf '%s' "$line" | sed 's/%/%25/g; s/\r//g' | cut -c1-300)
-            [ -n "$clean" ] && echo "::error::$clean"
-          done < wrong.txt
-          exit "$code"
-        fi
+      run: ./gradlew bundleRelease assembleRelease --no-daemon
 
     - name: Upload AAB (for Play Store)
       uses: actions/upload-artifact@v4

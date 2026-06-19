@@ -1,0 +1,21 @@
+# Build output
+build/
+app/build/
+.gradle/
+local.properties
+
+# Signing key & secrets (NEVER commit these)
+*.keystore
+*.jks
+keystore*.txt
+*.b64
+
+# Logs / temp
+*.log
+gradle_out.txt
+wrong.txt
+
+# IDE
+.idea/
+*.iml
+.DS_Store
